@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mini Figma Editor</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+    }
+
+    #toolbar {
+      padding: 10px;
+      background: #111827;
+      color: white;
+    }
+
+    button {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    #canvas {
+      background: white;
+      width: 100vw;
+      height: calc(100vh - 50px);
+      display: block;
+    }
+
+    rect.selected {
+      stroke: #8192b4;
+      stroke-width: 2;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="toolbar">
+    <button id="addRect">Add Rectangle</button>
+  </div>
+
+  <svg id="canvas"></svg>
+
+  <script>
+    const svg = document.getElementById("canvas");
+    const addRectBtn = document.getElementById("addRect");
+
+    let selected = null;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    // Add rectangle
+    addRectBtn.onclick = () => {
+      const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+
+      rect.setAttribute("x", 100);
+      rect.setAttribute("y", 100);
+      rect.setAttribute("width", 120);
+      rect.setAttribute("height", 80);
+      rect.setAttribute("fill", "#4f46e5");
+
+      svg.appendChild(rect);
+    };
+
+    // Select & drag
+    svg.addEventListener("mousedown", (e) => {
+      if (e.target.tagName === "rect") {
+        select(e.target);
+        offsetX = e.offsetX - selected.x.baseVal.value;
+        offsetY = e.offsetY - selected.y.baseVal.value;
+      }
+    });
+
+    svg.addEventListener("mousemove", (e) => {
+      if (!selected) return;
+      selected.setAttribute("x", e.offsetX - offsetX);
+      selected.setAttribute("y", e.offsetY - offsetY);
+    });
+
+    svg.addEventListener("mouseup", () => {
+      selected = null;
+    });
+
+    svg.addEventListener("mouseleave", () => {
+      selected = null;
+    });
+
+    function select(element) {
+      document.querySelectorAll("rect").forEach(r => r.classList.remove("selected"));
+      selected = element;
+      selected.classList.add("selected");
+    }
+  </script>
+
+</body>
+</html>
