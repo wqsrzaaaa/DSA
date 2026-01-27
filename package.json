@@ -1,0 +1,24 @@
+{
+  "name": "html-css-course",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wqsrzaaaa/DSA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wqsrzaaaa/DSA/issues"
+  },
+  "homepage": "https://github.com/wqsrzaaaa/DSA#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
