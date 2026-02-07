@@ -1,0 +1,25 @@
+{
+  "name": "html-css-course",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wqsrzaaaa/DSA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wqsrzaaaa/DSA/issues"
+  },
+  "homepage": "https://github.com/wqsrzaaaa/DSA#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.1.6"
+  }
+}
