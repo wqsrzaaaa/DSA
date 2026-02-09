@@ -1,6 +1,6 @@
 const app = require("./src/app");
 const db = require("./src/config/db");
-
+const dotenv = require('dotenv').config()
 
 db()
 app.listen(3000 , ()=>{
