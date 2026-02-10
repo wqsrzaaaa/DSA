@@ -7,7 +7,7 @@ app.use(express.json())
 
 app.use(cookieParser())
 
-app.use('/register' , usercreate )
+app.use('/auth' , usercreate )
 
 
 module.exports = app
